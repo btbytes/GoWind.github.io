@@ -1,0 +1,15 @@
+---
+title: Index of Gowind.github.io
+---
+
+BLOGITEMS
+
+Further project ideas I have (will add more as I complete the existing
+project ideas)
+
+-   Build Glibc from scratch
+-   ~~Understand how NodeJS transforms Async await~~
+-   Create a demo to show how Zig code can be compiled from Zig code
+-   ~~Finish or Make Progress with: Building a RISC-V CPU Core I signed
+    up for~~
+-   Explore and detail the DWARF debug format
