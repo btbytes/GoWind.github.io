@@ -34,7 +34,7 @@ def extract_html_title(html_file):
 
 
 def get_file_creation_time(filename):
-    command = f"git log --format=%aI {filename} | tail -n 1"
+    command = f"git log --format=%aI {filename} | head -n 1"
     result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
     creation_time = result.stdout.read().decode().strip()
     return creation_time
@@ -48,11 +48,14 @@ def generate_md_list(directory):
     ]
     md_files.sort(key=lambda x: get_file_creation_time(x), reverse=True)
     html_list = "<ul>\n"
+    c = 0
     for file in md_files:
         html = file.replace(".md", ".html")
         title = extract_html_title(html)
         date = get_file_creation_time(file)
+        print(f"{c} - {date} - {file} -  {title}")
         html_list += f'<li>{date[:10]}<a href="{html}">{title}</a></li>\n'
+        c += 1
     html_list += "</ul>\n"
     return html_list
 
